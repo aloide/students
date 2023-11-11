@@ -1,0 +1,35 @@
+<style>
+    .form-center {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .form-center * {
+        width: 100%;
+        margin: 3px auto;
+    }
+</style>
+
+
+<form action="/login/create" method="post" class="form-center">
+    <div class="">
+        <label for="username">Id usuario</label>
+        <br>
+        <input type="number" name="username" id="username" required>
+    </div>
+    <div class="">
+        <select name="tipo" id="tipo">
+            <option value="s">Estudiante</option>
+            <option value="d">Docente</option>
+        </select>
+    </div>
+    <div class="">
+        <label for="paswd">Password</label>
+        <br>
+        <input type="password" name="paswd" id="paswd" required>
+    </div>
+    <div class="">
+        <input type="submit" value="Crear usuario">
+    </div>
+</form>

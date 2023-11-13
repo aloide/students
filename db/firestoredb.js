@@ -5,32 +5,61 @@
 import admin from 'firebase-admin';
 
 // Inicializa Firebase con tu configuración
-const serviceAccount = require('./path/to/your/serviceAccountKey.json');
+import serviceAccount from './config.js'
+
+
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://your-project-id.firebaseio.com'
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://your-project-id.firebaseio.com'
 });
 
 // Exporta las funciones que necesitas
 
 // Ejemplo de función para agregar un documento a una colección
-exports.addDocument = async (collectionName, documentData) => {
-  try {
-    const db = admin.firestore();
-    const collectionRef = db.collection(collectionName);
-    const result = await collectionRef.add(documentData);
-    console.log('Documento agregado con ID:', result.id);
-    return result.id;
-  } catch (error) {
-    console.error('Error al agregar documento:', error);
-    throw error;
-  }
+/**
+ * 
+ * @param {string} collectionName 
+ * @param {string} documentData 
+ * @returns string idResult
+ */
+export async function addDocument(collectionName, documentData) {
+    try {
+        const db = admin.firestore();
+        const collectionRef = db.collection(collectionName);
+        const result = await collectionRef.add(documentData);
+        console.log('Documento agregado con ID:', result.id);
+        return result.id;
+    } catch (error) {
+        console.error('Error al agregar documento:', error);
+        throw error;
+    }
 };
 
+
+
 // Otros métodos que puedas necesitar...
+/**
+ * 
+ * @param {string} collectionName 
+ * @param {{firstField : string,operator: string,secondField: string}} query 
+ * @returns object retrieved
+ */
+export async function simpleQuery(collectionName, query) {
+    try {
+        
+        const db = admin.firestore();
+        const collectionRef = db.collection(collectionName);
+        const result = await collectionRef
+            .where(query.firstField, query.operator, query.secondField).get()
+        return result
+
+    } catch (error) {
+        console.error(("Error al buscar:" , error));
+    }
+}
 
 // Cierra la conexión cuando sea necesario
-exports.closeConnection = () => {
-  admin.app().delete();
+export function closeConnectio() {
+    admin.app().delete();
 };
 

@@ -1,4 +1,4 @@
-{
+export default{
   "type": "service_account",
   "project_id": "asistencia-edo",
   "private_key_id": "5b7f548c7fdc35f6a934952e33c6af6f1f56111e",

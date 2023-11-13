@@ -54,7 +54,32 @@ export async function simpleQuery(collectionName, query) {
         return result
 
     } catch (error) {
-        console.error(("Error al buscar:" , error));
+        console.error(("Error al buscar: " , error));
+    }
+}
+
+
+/**
+ * 
+ * @param {string} collectionName 
+ * @param {{firstField : string,operator: string,secondField: string}} firstQuery 
+ * @param {{firstField : string,operator: string,secondField: string}} secondQuery 
+ * @returns object retrieved
+ */
+export async function doubleQuery(collectionName, firstQuery, secondQuery){
+
+    try{
+
+        const db = admin.firestore();
+        const collectionRef = db.collection(collectionName);
+        const result = await collectionRef
+            .where(firstQuery.firstField, firstQuery.operator, firstQuery.secondField)
+            .where(secondQuery.firstField, secondQuery.operator, secondQuery.secondField)
+            .get()
+        return result
+
+    }catch(error){
+        console.error("Error al buscar: ", error);
     }
 }
 

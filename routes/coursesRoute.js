@@ -1,11 +1,13 @@
 import { Router } from 'express';
 const router = Router();
-import {get_login, post_login} from '../controllers/loginController.js'
+import {get_login} from '../controllers/coursesController.js'
 
 // Rutas relacionadas con el login
-// /login...
+// /courses...
 router.get('/', get_login);
-router.post("/", post_login)
+
+// definicion de rutas por curso
+// courses/{idCourse} : get
 
 
 export default router;

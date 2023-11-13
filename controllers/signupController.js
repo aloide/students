@@ -32,6 +32,6 @@ export async function post_create(req, res) {
     if(idNewUser == null){
         res.send({"message":"error"})
     }
-    res.send({"userid":idNewUser})
-    
+    //res.send({"userid":idNewUser})
+    res.redirect("/login")
 }

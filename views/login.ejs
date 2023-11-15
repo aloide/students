@@ -49,6 +49,15 @@
                 <%- include('./partials/components/login_form')%>
                 
                 <a href="/signup">No tengo cuenta</a>
+
+
+                <% if(message){ %>
+                    <div class="alert alert-warning">
+                        <%= message %>
+                    </div>
+                <% } %>    
+                
+
             </div>
         </div>
 

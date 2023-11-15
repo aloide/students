@@ -1,12 +1,12 @@
 // service
-import { validarUsuario } from "../services/userService.js"
+import { obtenerUsuario } from "../services/userService.js"
 
 // helpers
 import { convertirBase64 } from "../helpers/b64Helper.js"
 import { convertirSha256 } from "../helpers/sha256Helper.js"
 
 export async function get_login(req, res) {
-    res.render("login")
+    res.render("login", {message:""})
 }
 
 export function get_anon(req, res){
@@ -15,25 +15,36 @@ export function get_anon(req, res){
 
 export async function post_login(req, res){
     // crea el dto
-    let {username} = req.body
+    let {username: id} = req.body
     let paswd = convertirBase64(convertirSha256(req.body.paswd))
 
     // busca el usuario y valida la contra...
-    let usuarioNoExiste = await validarUsuario(username, paswd)
+    let usuarioDb = await obtenerUsuario(id, paswd)
 
-    console.log(">>>>>>>>> ", usuarioNoExiste);
+    let usuarioIsEmpty = usuarioDb.empty
+    //console.log(usuarioIsEmpty);
 
-
-    if(!usuarioNoExiste){
+    if(usuarioIsEmpty){
         res.render("login", {message:"El usuario no es valido"})
         return
     }
 
+    let isActive = usuarioDb.docs[0].get("active")
+    //console.log(">>>>>>>>> ", isActive);
 
-    // muestra la vista de home
-    // guarda dto en sesion
-    // y muestra el course/home
-    // res.render("courses", {nombre:"PEpe", saludo:"HoLa"})
+
+    if(!isActive){
+        res.render("login",{message:"El registro del usuario esta siendo procesado"})
+        return
+    }
+
+    let userToSession = {
+        id:id,
+        nombre: usuarioDb.docs[0].get("name"),
+        tipo: usuarioDb.docs[0].get("tipo")
+    }
+
+    req.session.usuario = userToSession
     res.redirect("/courses")
 }
 

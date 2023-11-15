@@ -35,6 +35,31 @@ export async function addDocument(collectionName, documentData) {
     }
 };
 
+export async function setDocument(collectionName, idDocument, documentData){
+    try {
+        const db = admin.firestore();
+        const collectionRef = db.collection(collectionName);
+        const documentRef = collectionRef.doc(idDocument); // Aquí especificas el ID del documento
+      
+        await documentRef.set(documentData); // Utiliza el método set() para agregar el documento
+      
+        console.log('Documento agregado con ID:', idDocument);
+      } catch (error) {
+        console.error('Error al agregar documento:', error);
+        throw error;
+      }
+}
+
+export function getCollectionReference(collectionName){
+    try {
+        const db = admin.firestore()
+        return db.collection(collectionName)
+
+    } catch (error) {
+        console.error('Error al agregar documento:', error);
+        throw error;
+    }
+}
 
 
 // Otros métodos que puedas necesitar...
@@ -58,30 +83,6 @@ export async function simpleQuery(collectionName, query) {
     }
 }
 
-
-/**
- * 
- * @param {string} collectionName 
- * @param {{firstField : string,operator: string,secondField: string}} firstQuery 
- * @param {{firstField : string,operator: string,secondField: string}} secondQuery 
- * @returns object retrieved
- */
-export async function doubleQuery(collectionName, firstQuery, secondQuery){
-
-    try{
-
-        const db = admin.firestore();
-        const collectionRef = db.collection(collectionName);
-        const result = await collectionRef
-            .where(firstQuery.firstField, firstQuery.operator, firstQuery.secondField)
-            .where(secondQuery.firstField, secondQuery.operator, secondQuery.secondField)
-            .get()
-        return result
-
-    }catch(error){
-        console.error("Error al buscar: ", error);
-    }
-}
 
 // Cierra la conexión cuando sea necesario
 export function closeConnectio() {

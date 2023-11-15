@@ -1,4 +1,4 @@
-import { addDocument, simpleQuery, doubleQuery } from '../db/firestoredb.js'
+import { addDocument, simpleQuery, getCollectionReference } from '../db/firestoredb.js'
 
 
 export async function crearUsuario(dto){
@@ -22,19 +22,20 @@ export async function existeUsuario(dto){
 
 }
 
-export async function validarUsuario(usuario, paswd){
-    let result = await doubleQuery("/users",{
-        "firstField":"username",
-        "operator":"==",
-        "secondField":usuario
-    },{
-        "firstField":"paswd",
-        "operator":"==",
-        "secondField":paswd
-    })
+export async function obtenerUsuario(idUsuario, paswd){
+    try {
+        let dbref = getCollectionReference("/users")
+        //console.log(idUsuario, paswd);
 
-    // true si esta bien el usuario
-    return !result.empty
+        let result = await dbref
+            .where("id","==",idUsuario)
+            .where("paswd","==",paswd)
+            .get()
+        
+        return result
+    } catch (error) {
+        console.error("Error al consultar");
+        throw error
+    }
+
 }
-
-// TODO: implementar algo para validar el usuario, password y active

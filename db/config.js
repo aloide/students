@@ -1,8 +1,11 @@
+const priv_key = process.env.FIRE_PRIVATE_KEY
+const priv_key_id = process.env.FIRE_PRIVATE_KEY_ID
+
 export default{
   "type": "service_account",
   "project_id": "asistencia-edo",
-  "private_key_id": "5b7f548c7fdc35f6a934952e33c6af6f1f56111e",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCwBu5G04AHdC/K\nfDAeSo6alBWdd85vszI2RRBJhW1+XcsIz1e14KBoNj6FvgHdoDwF1Syosfew4MKg\ngCrdyHq6EZtsPxRsBcqL+gZtAPnPJwkvRm97NJ3lTB0QJNlsZAqo9V+iKyImrJYe\nrIet0kpCq/Ew2lLn1y+13cEy3KJj6nAXfDK1W4Ykl4YQ868Yv+TMKP+7LQXE9eX8\nBlFgSo+zL4wA4yk6G6v0oBlN6pZQTt5SSYtZzD5TX6yT1V3AcLF7BnvInLRGkLIK\nXIGnC49EXme3LvtIThnRyU5ec18Z1kj+vP6k3XrlGO22aPHgC+nXIQNg/PqrTmq6\npF0XBj+nAgMBAAECggEAAyap8Z2hSeuJXCQQo8eCOap99TrVo10/VbEIeMXJLye/\nAIeJp+lUpcOW0e5pT84pqjxl1208JFqZpqWKCZH9qcKymA5MWh9ZFVwNQmVFPjE8\n3QTzQ5mDsWeakOqVSSHvU5VKOCJyiDkIWkCMuzlWTU7mUJFlRjOCw0wsGbImZrMe\nKX31BjdAdvndDNxOuCpHTNZKDKqDdZl5TWijZpqMjAmP4oAbRI4nQartksi0dm0d\nIXpEh629ulLdHw/Z6DGyBQ6NsMOBIqvitN+QQNtGNTEtrXLDGJLOKKXvwYstGQhK\nmsyCmQnuXxw405P8Uzd1Hzr2VLs42I2gjH7E8Fu8IQKBgQDwcAaAmS5rDIFfErdh\n9DUVwTZ19VTgPOiyqJKgFCEPMUX8ztawlvOFoTFZvChfpY2LJ++0I/kkGV2BYM8J\nvjiE5Tp29+5tVPyiMrEARmCX+i6cYHm8XY6CP8zcUJdHXECYjaiAAyYGrY1b40em\n71qSXKTpHb9GP+F7gt5i/qnchwKBgQC7a6S3kGMS+HJgu/ddcSKn9RtLxhXM/DEU\n3+KDdNVZGej+lFsBdTQxRo3dIJdH6d/vWXh/dsr56r2pc58oGgTGVXHOe9OBIbng\nLeC4v5Wae+Qs9hbZl9ANhkEqxo4o7xIKZf+22OG77V5p04jkaKXrtowzWexwpA7A\n23j/oblr4QKBgBqaGm4SBKu9Z3bwaC/DSDhO90qXyTtCIfDaa9agQ4QdzIOLEv/Y\nw7rOOdqW0dS7SWzTD1db/4257LmKz31heXlir1RIXC3mkEkV2LWSE8/c01lj5zQr\nGcBZdL4PgJ1ZnKAEVFdNgeCNRS2ceOoEY338GBbevrH0EWuL8DT9vidzAoGADUFI\nrf7VMvNFS5gfn4kv1UcdfhdtVUkEw6At6fQqXpnZg5/Ea+75GP8Pa3Mxn9FnmArw\n3bruEgzLCx/1QqXMbqZ+XQce50QWXEeCXC6Yiwt2EMP6y7rT6RD0rOzMAxMdaITc\nN/dQx7S696sRRG4uReRsN/mFIlZIANXE0feDIKECgYBkj5WicT1SBQkUlEMdMZpx\nEojra1qq/v8oxtKyGKX2u1TDveB63BvSGZcqLhpnN05R+T+ocxU1z8AJyRZOTe2T\nJeUVAbYqBvIPY192hNnASm7K+lCfGMzSLwvQ9sGIwGs8b1ait2xmThCxzhwq8US8\nOV3jttW4efIt0pZkV/lH/A==\n-----END PRIVATE KEY-----\n",
+  "private_key_id":priv_key_id,
+  "private_key":priv_key,
   "client_email": "firebase-adminsdk-cmfqo@asistencia-edo.iam.gserviceaccount.com",
   "client_id": "104401259989396456120",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",

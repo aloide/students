@@ -1,7 +1,13 @@
+import * as dotenv from 'dotenv';
+dotenv.config()
+
+console.log(process.env.TEST);
+
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import express from 'express';
 import session from 'express-session';
+
 const app = express();
 const m = morgan("short")
 const port = 3000;

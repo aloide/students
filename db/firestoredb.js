@@ -1,12 +1,13 @@
-// firestore lib
-
-// firestoreModule.js
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 import admin from 'firebase-admin';
 
 // Inicializa Firebase con tu configuración
 import serviceAccount from './config.js'
 
+serviceAccount.private_key = process.env.FIRE_PRIVATE_KEY
+serviceAccount.private_key_id = process.env.FIRE_PRIVATE_KEY_ID
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),

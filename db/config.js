@@ -1,4 +1,9 @@
-const priv_key = process.env.FIRE_PRIVATE_KEY
+import { config } from "dotenv";
+config()
+import { decodificarBase64 } from "../helpers/b64Helper.js"
+
+
+const priv_key = decodificarBase64(process.env.FIRE_PRIVATE_KEY)
 const priv_key_id = process.env.FIRE_PRIVATE_KEY_ID
 
 export default{

@@ -10,8 +10,8 @@ import session from 'express-session';
 
 const app = express();
 const m = morgan("short")
-const port = 3000;
-const secret_id = "secreto";
+const port = process.env.PORT || 3000;
+const secret_id = process.env.APP_SECRET || "secreto";
 
 // Importar rutas
 //const userRoutes = require('./routes/userRoutes.js').default;

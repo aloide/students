@@ -3,36 +3,8 @@
 
 <head>
     <%- include('./partials/head')%>
-        <title>EDO - Login</title>
-
-        <style>
-            body{
-                background-color: lightgray;
-            }
-            .main {
-                height: auto;
-                width: auto;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                
-            }
-
-            .contenedor {
-                /*margin-top: calc(1vh -50%);*/
-                margin: auto;
-                padding: 48px;
-                width: 640px;
-                height: 480px;
-                background-color: white;
-                border-width: 5px;
-                border-color: black;
-                border-style: double;
-                border-radius: 5px;
-                /*line-height: 200px;*/
-                box-shadow: 5px 5px 5px 5px rgba(154, 154, 218, 0.461);
-            }
-        </style>
+        <title>EDOV - Login</title>
+    <%- include('./partials/styles') %>
 
 </head>
 
@@ -41,8 +13,6 @@
     <%- include('./partials/header', {variant: 'login' }); %>
 
         <div class="main">
-
-
             <div class="contenedor">
                 <h1 class="">Crear usuario </h1>
                 <%- include('./partials/components/signup_form')%>

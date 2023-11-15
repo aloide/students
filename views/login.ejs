@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head')%>
+        <title>EDO - Login</title>
+
+    <%- include('./partials/styles') %>
+
+</head>
+
+<body>
+
+    <%- include('./partials/header', {variant: 'login' }); %>
+
+        <div class="main">
+            <div class="contenedor">
+                <h1 class="">Iniciar sesion </h1>
+
+                <%- include('./partials/components/login_form')%>
+                
+                <a href="/signup">No tengo cuenta</a>
+
+
+                <% if(message){ %>
+                    <div class="alert alert-warning">
+                        <%= message %>
+                    </div>
+                <% } %>    
+                
+
+            </div>
+        </div>
+
+</body>
+
+
+</html>

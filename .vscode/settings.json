@@ -1,0 +1,9 @@
+{
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorStyle": "line",
+    "diffEditor.codeLens": true,
+    "editor.minimap.autohide": true,
+    "editor.minimap.size": "fit",
+    "explorer.fileNesting.enabled": false
+}

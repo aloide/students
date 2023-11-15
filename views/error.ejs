@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>EDOV - Error</title>
+    <%- include('./partials/styles') %>
+</head>
+
+<body>
+
+
+
+
+    </div>
+    <div class="main">
+        <div class="contenedor">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="display-4">
+                        Ocurrió un error <%= status %> !
+                    </div>
+                    <p class="lead">
+                        <%= message %>
+                    </p>
+                    <p class="lead">
+                        Si este error persiste, habla con un administrador del sitio.
+                    </p>
+                </div>
+                <a href="/">Volver al inicio</a>
+            </div>
+        </div>
+
+</body>
+
+</html>

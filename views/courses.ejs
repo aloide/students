@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>EDOV - Cursos</title>
+    <%- include('./partials/styles') %>
+</head>
+
+<body>
+
+    <%- include('./partials/header',{variant:"login"}) %>
+
+    <div class="main">
+        <div class="contenedor">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="display-4">
+                        <%= saludo %>
+                            <%= nombre %> !
+                    </div>
+                    <p class="lead">
+                        ¡ Te doy la bienvenida al aula virtual de la Escuela de Oficios !
+                    </p>
+                    <p class="lead">
+                        Aún el aula virtual se encuentra en desarrollo. Sea paciente.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

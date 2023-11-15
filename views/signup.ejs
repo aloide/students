@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head')%>
+        <title>EDOV - Login</title>
+    <%- include('./partials/styles') %>
+
+</head>
+
+<body>
+
+    <%- include('./partials/header', {variant: 'login' }); %>
+
+        <div class="main">
+            <div class="contenedor">
+                <h1 class="">Crear usuario </h1>
+                <%- include('./partials/components/signup_form')%>
+                <a href="/login">Ya tengo cuenta</a>
+
+            </div>
+        </div>
+
+</body>
+
+
+</html>

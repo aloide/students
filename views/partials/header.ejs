@@ -1,0 +1,28 @@
+<style>
+    .header{
+        width: 100%;
+        background-color: rgb(146, 146, 146);
+        /*margin-left: 24px;*/
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="header">
+
+    <% switch (variant) {
+        case 'login' : %>
+            <h2>Escuela de oficios virtual</h2>
+            <% break;
+        
+        case 'eventAdmin' : %>
+                Event Admin
+                <% break;
+        
+        case 'subAdmin' : %>
+                Sub Admin
+                <% break;
+        
+        } %>
+
+</div>

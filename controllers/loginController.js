@@ -4,6 +4,7 @@ import { obtenerUsuario } from "../services/userService.js"
 // helpers
 import { convertirBase64 } from "../helpers/b64Helper.js"
 import { convertirSha256 } from "../helpers/sha256Helper.js"
+import { formatoFecha } from "../helpers/dateHelper.js"
 
 export async function get_login(req, res) {
     res.render("login", {message:""})
@@ -40,7 +41,9 @@ export async function post_login(req, res){
 
     let userToSession = {
         id:id,
-        nombre: usuarioDb.docs[0].get("name"),
+        name: usuarioDb.docs[0].get("name"),
+        lastname:  usuarioDb.docs[0].get("lastname"),
+        created: formatoFecha( usuarioDb.docs[0].get("created")),
         tipo: usuarioDb.docs[0].get("tipo")
     }
 

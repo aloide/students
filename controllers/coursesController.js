@@ -1,7 +1,6 @@
 // helpers
 import { saludoByHora } from "../helpers/saludoHelper.js"
 
-// TODO: valida mediante session el dto cargado
 export async function get_login(req, res) {
 
     if(!req.session.usuario){

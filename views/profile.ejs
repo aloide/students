@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/styles') %>
+        <title>Document</title>
+        <%- include('./partials/head') %>
+</head>
+
+<body>
+
+    <%- include('./partials/header') %>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="border rounded ">
+                        <img class="mx-auto" style="width: 200px;" src="https://robohash.org/<%= profile.id %>.png?size=200x200" alt="profile-img" ,
+                            width="200px" , height="200px">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>
+                                        <b>Documento</b>: <%= profile.id %>
+                                    </p>
+                                    <p>
+                                        <b>Nombre</b>: <%= profile.name %>
+                                    </p>
+                                    <p>
+                                        <b>Apellido</b>: <%= profile.lastname %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>
+                                        <b>Tipo</b>: <%= profile.tipo %>
+                                    </p>
+                                    <p>
+                                        <b>Fecha de creacion</b>: <%= profile.created %>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="/change-password" method="post">
+                                        <input type="button" value="Cambiar password" disabled>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</body>
+
+</html>

@@ -10,19 +10,8 @@
 
 <div class="header">
 
-    <% switch (variant) {
-        case 'login' : %>
-            <h2>Escuela de oficios virtual</h2>
-            <% break;
-        
-        case 'eventAdmin' : %>
-                Event Admin
-                <% break;
-        
-        case 'subAdmin' : %>
-                Sub Admin
-                <% break;
-        
-        } %>
+    <h2>Escuela de oficios virtual</h2>
+
+    <%- include('./components/navbar') %>
 
 </div>

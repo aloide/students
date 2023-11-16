@@ -14,22 +14,22 @@
 
 <form action="/signup" method="post" class="form-center">
     <div class="">
-        <label for="username">Id usuario</label>
+        <label for="documento">Número de documento</label>
         <br>
-        <input type="number" name="username" id="username" required>
+        <input type="number" name="documento" id="documento" required placeholder="Sin puntos y sin espacio">
     </div>
     <div class="">
-        <label for="name">Nombre</label>
+        <label for="name">Nombres</label>
         <br>
         <input type="text" name="name" id="name" required>
     </div>
     <div class="">
-        <label for="lastname">Apellido</label>
+        <label for="lastname">Apellidos</label>
         <br>
         <input type="text" name="lastname" id="lastname" required>
     </div>
     <div class="">
-        <select name="tipo" id="tipo">
+        <select name="tipo" id="tipo" disabled>
             <option value="e">Estudiante</option>
             <option value="d">Docente</option>
         </select>
@@ -37,7 +37,7 @@
     <div class="">
         <label for="paswd">Password</label>
         <br>
-        <input type="password" name="paswd" id="paswd" required>
+        <input type="password" name="paswd" id="paswd" required placeholder="4 Caracteres mínimo">
     </div>
     <div class="">
         <input type="submit" value="Crear usuario">

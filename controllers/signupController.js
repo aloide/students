@@ -3,6 +3,7 @@ import { crearUsuario, existeUsuario } from '../services/userService.js';
 // helpers
 import { convertirBase64 } from '../helpers/b64Helper.js';
 import { convertirSha256 } from '../helpers/sha256Helper.js';
+import { obtenerFechaActual } from '../helpers/dateHelper.js';
 
 
 export function get_create(req, res) {
@@ -12,11 +13,12 @@ export function get_create(req, res) {
 
 export async function post_create(req, res) {
 
-    let {username, tipo, name, lastname} = req.body
+    let {documento: id, tipo, name, lastname} = req.body
 
     let paswd =  convertirBase64(convertirSha256(req.body.paswd))
 
-    let dto = {name, lastname, username : id, paswd,tipo, active:false}
+    let dto = {name, lastname, id, paswd,tipo: "e", active:false, created: obtenerFechaActual()}
+
 
     // validacion del dto con la db
     let permiteContinuar = await existeUsuario(dto)

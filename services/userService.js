@@ -1,9 +1,14 @@
-import { addDocument, simpleQuery, getCollectionReference } from '../db/firestoredb.js'
+import { addDocument, simpleQuery, getCollectionReference, setDocument } from '../db/firestoredb.js'
 
 
 export async function crearUsuario(dto){
     try{
-        return await addDocument("/users", dto)
+        //return await addDocument("/users", dto)
+        if(!dto.id) throw Error("Imposible crear usuario sin id")
+
+        await setDocument("/users",dto.id,dto)
+        return dto.id
+
     }catch(error){
         return null
     }
@@ -12,13 +17,13 @@ export async function crearUsuario(dto){
 export async function existeUsuario(dto){
 
     let result = await simpleQuery("/users",{
-        "firstField":"username",
+        "firstField":"id",
         "operator":"==",
-        "secondField":dto.username
+        "secondField":dto.id
     })
 
     // true si no existe el usuario
-    return result.empty
+    return result == undefined || result.empty
 
 }
 
